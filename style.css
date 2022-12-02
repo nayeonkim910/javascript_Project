@@ -1,0 +1,36 @@
+body{
+    margin: 0px;
+    background-color: black;
+}
+.horizontal{
+    background-color: rgb(178, 29, 29);
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    position: absolute;
+
+}
+.vertical{
+    background-color: rgb(178, 29, 29);
+    height: 100%;
+    position: absolute;
+    width: 2px;
+    left: 50%;
+}
+img{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+}
+.coordinates{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: aliceblue;
+    transform: translate(20px, 20px);
+    font-size: 20px;
+    font-weight: bold;
+}
