@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the terget</title>
+    <link rel="icon" href="img/carrot.png">
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+      body{
+        background-color:  black;
+      }
+      .container{  
+        text-align: center;
+      }
+      button{
+        background-color: black;
+        color: rgb(249, 0, 83);
+        border: 2px solid rgb(249, 0, 83);
+        font-size: 45px;
+        font-weight: bold;
+        padding: 15px;
+        margin: 10px;
+        /* width: 15%; */
+      }
+      button:hover{
+        cursor: pointer;
+      }
+      img{
+        width: 160px;
+        height: 180px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      <button class='Btn'>I got you !</button>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class="target"><img src="img/rabbit.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+       <div class='carrot'><img src="img/carrot.png"></div>
+  </div>     
+    <script>
+      const Btn = document.querySelector(".Btn");
+      const target = document.querySelector(".target");
+      Btn.addEventListener('click',()=>{
+      seamless.scrollIntoView(target,{behavior: "smooth", block: "center"})});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script>
+
+  </body>
+</html>
