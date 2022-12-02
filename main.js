@@ -15,3 +15,9 @@ document.addEventListener("mousemove",(e)=> {
     target.style.left =`${x}px`;
 
 });
+var sf = new Snowflakes({
+    color: "rgb(192, 220, 249)", 
+    count: 150, 
+    minOpacity: 0.2, 
+    maxOpacity: 0.8  
+});
