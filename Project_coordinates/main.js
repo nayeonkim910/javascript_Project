@@ -1,7 +1,6 @@
 
 
 
-
 const horizontal = document.querySelector(".horizontal");
 const vertical = document.querySelector(".vertical");
 const coordinates = document.querySelector(".coordinates");
@@ -9,7 +8,6 @@ const target = document.querySelector(".target");
 const coordiT = target.getBoundingClientRect();
 targetHafWid = coordiT.width/2;
 targetHafHei = coordiT.height/2;
-
 
 document.addEventListener("mousemove",(e)=> {
     const x = e.clientX;
