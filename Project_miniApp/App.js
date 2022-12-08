@@ -1,23 +1,21 @@
 const content = document.querySelector(".content");
 const textBox = document.querySelector(".textBox");
-const list = document.querySelector(".list");
 const Btn =document.querySelector(".Btn");
- 
+
 Btn.addEventListener('click',()=>{
-    const listItem = document.createElement("li");
-    const icon = document.createElement("i");
-    icon.setAttribute("class","fa-regular fa-xl fa-circle-check");
-    listItem.innerHTML = `${textBox.value}`;
-    list.appendChild(listItem);
-    list.appendChild(icon);
-    textBox.value ='';
-    console.log(listItem);
-});
-  
-  
-  
-  
- 
- 
- 
- 
+    const listItem = document.createElement('div');
+    const icon = document.createElement('div');
+    icon.innerHTML='<i class="fa-regular fa-xl fa-circle-check"></i>';
+    icon.setAttribute('class','iconDiv');
+    listItem.setAttribute('class','listItem');
+    listItem.textContent=`${textBox.value}`;
+    textBox.value='';
+    content.appendChild(listItem);
+    listItem.appendChild(icon);
+        let IsLine;
+         icon.addEventListener('click',()=>{
+            listItem.style.textDecorationLine= IsLine===true?"none":"line-through";
+            IsLine = IsLine === true? false : true;
+            console.log(IsLine);
+            });
+})
