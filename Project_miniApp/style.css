@@ -16,7 +16,7 @@ text-align: center;
     margin: auto;  
     margin-top: 100px;
     border-radius: 15px;
-
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 19px -15px 13px 14px rgba(0,0,0,0);
 }
 .title{
     height: 10%;
@@ -31,11 +31,11 @@ text-align: center;
   
 }
 .content{
-background-color: rgb(250, 223, 231);
-width: 100%;
-height: 430px;
-padding: 5px;
-/* display: flex; */
+    background-color: rgb(250, 223, 231);
+    width: 100%;
+    height: 430px;
+    padding: 5px;
+    overflow-y: auto;
 }
 .textBox{
     height: 50px;
@@ -44,6 +44,7 @@ padding: 5px;
     text-align: center;
     font-weight: bold;
     font-size: large;
+    outline: none;
 }
 
 .footer{
@@ -61,13 +62,15 @@ padding: 5px;
     border-radius: 10px;
     padding: 5px 15px;
     font-style: normal;
+    transition: transform 300ms ease;
 }
-.Btn, i:hover{
+.Btn:hover, i:hover{
     cursor: pointer;
+    transform: scale(1.2);
 }
 .content>div{
     padding: 8px;
-    border: 1px solid black;
+    border: 1px solid rgb(63, 62, 62);
     margin: 8px;
     font-size: 17px;
     border-radius: 5px;
@@ -80,7 +83,9 @@ padding: 5px;
 }
 .iconDiv{
     background-color: transparent;
-    padding: 0px 3px
+    padding: 0px 3px;
+   
+
 }
 .iconBox{
     display: flex;
