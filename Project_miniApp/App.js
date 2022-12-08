@@ -3,6 +3,8 @@ const textBox = document.querySelector(".textBox");
 const Btn =document.querySelector(".Btn");
 
 Btn.addEventListener('click',()=>{
+    let IsValue=textBox.value===''? false : true;
+    if(IsValue){
     const listItem = document.createElement('div');
     const icon = document.createElement('div');
     icon.innerHTML='<i class="fa-regular fa-xl fa-circle-check"></i>';
@@ -18,4 +20,5 @@ Btn.addEventListener('click',()=>{
             IsLine = IsLine === true? false : true;
             console.log(IsLine);
             });
+        }        
 })
