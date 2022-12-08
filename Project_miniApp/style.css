@@ -80,7 +80,10 @@ padding: 5px;
 }
 .iconDiv{
     background-color: transparent;
+    padding: 0px 3px
 }
- 
+.iconBox{
+    display: flex;
+}
  
  
