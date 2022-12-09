@@ -13,16 +13,15 @@ const sk_blu = '<img src="img/blue_s.png" >';
 const sk_p_de = 'female, small ';
 const sk_y_de = 'female, large ';
 const sk_b_de = 'female, midium ';
-const skSet = [sk_pin, sk_blu,sk_yel];
+// const skSet = [sk_pin, sk_blu,sk_yel];
 
 sk.addEventListener('click',()=>{
-    console.log(skSet);
     const contentItemBox = document.createElement("div");
     contentItemBox.setAttribute('class', 'content__item');
     console.log('z클릭됨');
     const item__img = document.createElement('div');
     item__img.setAttribute('class', 'item__img');
-    item__img.innerHTML=skSet;
+    item__img.innerHTML=sk_pin;
     contentItemBox.appendChild(item__img);
   const item__description = document.createElement('div');
    item__description.setAttribute('class', 'item__description');
