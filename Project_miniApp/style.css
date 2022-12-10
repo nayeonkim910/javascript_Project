@@ -2,43 +2,45 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Nanum Gothic', sans-serif;
-    /* font-style: italic; */
  
 }
 body {
-background-color: rgb(255, 237, 247);
+background-color: rgb(148, 125, 185);
 text-align: center;
 }
 .container{
-    background-color: rgba(255, 2, 209, 0.234);
     width: 400px;
     height: 600px;
     margin: auto;  
     margin-top: 100px;
     border-radius: 15px;
-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 19px -15px 13px 14px rgba(0,0,0,0);
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 19px -15px 13px 14px rgba(0,0,0,0);
 }
 .title{
-    height: 10%;
+    background-color: rgba(159, 53, 175, 0.495);
+    height: 70px;
     width: 100%; 
     border-top-left-radius  : 15px;
     border-top-right-radius  : 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .title_content{
-    font-size: 30px;
-    padding-top: 15px;  
+    font-size: 33px;
     font-weight: bold;  
-  
+    color: rgb(240, 233, 217);
+    font-style: italic;
 }
 .content{
-    background-color: rgb(250, 223, 231);
+    background-color: rgba(241, 241, 241, 0.864);
     width: 100%;
     height: 430px;
     padding: 5px;
     overflow-y: auto;
 }
 .textBox{
-    height: 50px;
+    height: 40px;
     width: 100%;
     padding: 0;
     text-align: center;
@@ -48,34 +50,35 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 19px -15px 
 }
 
 .footer{
-    height: 10%; /* 60px*/
+    height: 60px; 
     width: 100%;
      border-bottom-left-radius:15px;
     border-bottom-right-radius:15px; 
     text-align: center;
+    background-color: rgba(159, 53, 175, 0.495);
+
 }
 .Btn{
-    margin-top: 8px;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 5px 15px;
-    font-style: normal;
-    transition: transform 300ms ease;
+    margin-top: 2px;
+    font-size: 40px;
+    padding: 5px;
 }
-.Btn:hover, i:hover{
-    cursor: pointer;
+.iconBox i:hover,
+.Btn i:hover{
     transform: scale(1.2);
+    transition: transform 300ms ease;
+    cursor: pointer;
 }
 .content>div{
+    font-style: italic;
     padding: 8px;
-    border: 1px solid rgb(63, 62, 62);
+    border: 1px solid rgb(82, 2, 85);
     margin: 8px;
+    color: rgb(0, 0, 0);
     font-size: 17px;
     border-radius: 5px;
     text-align: left;
-    background-color: rgba(252, 234, 249, 0.775);
+    background-color: rgba(249, 202, 241, 0.075);
     font-weight: bold;
     position: relative;
     display: flex;
