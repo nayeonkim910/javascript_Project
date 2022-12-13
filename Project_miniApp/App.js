@@ -1,7 +1,7 @@
 const content = document.querySelector(".content");
 const textBox = document.querySelector(".textBox");
 const Btn =document.querySelector(".Btn");
-
+const submitBox = document.querySelector("form");
 
 function addItem(){
     const text = textBox.value; //값있다면 넘겨주기
@@ -19,7 +19,7 @@ function addItem(){
 }
 let dataIdNum=0;
 function addItemBox(text){
-    const listItem = document.createElement('div');
+    const listItem = document.createElement('div'); 
     listItem.setAttribute('class', 'listItem');
     listItem.setAttribute('data-id', dataIdNum);
     listItem.innerHTML=`
@@ -32,7 +32,10 @@ function addItemBox(text){
     dataIdNum++;
     return listItem;
 }
-
+submitBox.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    addItem();
+});
 content.addEventListener('click',(e)=>{
     console.log(e);
     const id = e.target.dataset.id; 
@@ -45,17 +48,17 @@ content.addEventListener('click',(e)=>{
     }
 });
 
-Btn.addEventListener('click',()=>{
-    //value있는지 체크하고, 추가하도록
-    addItem();
-});
-
-
-
-//enter에도 반응하도록
-textBox.addEventListener('keypress',(e)=>{
-    if (e.key==='Enter') {
-        addItem();
-    }
-
-});
+// Btn.addEventListener('click',()=>{
+    // value있는지 체크하고, 추가하도록
+    // addItem();
+// });
+// 
+// 
+// 
+// enter에도 반응하도록
+// textBox.addEventListener('keyup',(e)=>{
+    // if (e.key==='Enter') {
+        // addItem();
+    // }
+// 
+// });
