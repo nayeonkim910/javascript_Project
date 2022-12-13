@@ -56,7 +56,6 @@ text-align: center;
     border-bottom-right-radius:15px; 
     text-align: center;
     background-color: rgba(159, 53, 175, 0.495);
-
 }
 .Btn{
     margin-top: 2px;
@@ -69,11 +68,13 @@ text-align: center;
     transition: transform 300ms ease;
     cursor: pointer;
 }
+.iconBox i {
+    padding: 0px 3px;
+}
 .content>div{
-    font-style: italic;
-    padding: 8px;
+    padding: 5px 4px;
     border: 1px solid rgb(82, 2, 85);
-    margin: 8px;
+    margin: 6px 4px;
     color: rgb(0, 0, 0);
     font-size: 17px;
     border-radius: 5px;
@@ -84,14 +85,12 @@ text-align: center;
     display: flex;
     justify-content: space-between;
 }
-.iconDiv{
-    background-color: transparent;
-    padding: 0px 3px;
-   
 
-}
-.iconBox{
+.listItem__icon{
+    padding: 2px;
     display: flex;
 }
- 
- 
+.listItem__icon i{
+    padding: 0px 2px;
+
+}
