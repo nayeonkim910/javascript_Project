@@ -1,23 +1,23 @@
-const view = document.querySelector('.gameView');
-const viewRect = view.getBoundingClientRect();
-const startBtn = document.querySelector('.startBtn');
-console.log(viewRect);
 
+const body = document.querySelector('body');
+const coordi = document.querySelector('.coordi');
+// const home = document.querySelector('.home');
 
-function displayBug(){
-    const bugBox = document.createElement('img');
-    let randomX = Math.floor(Math.random()*10+1);
-    let randomY = Math.floor(Math.random()*10+1);
-    bugBox.setAttribute('src','img/bug.png');
-    bugBox.setAttribute('class','bugBox');
-    bugBox.style.left = `"translateX("${randomX}")"`;
-    bugBox.style.top = `translateY("${randomY}")`;
-    view.appendChild(bugBox);
+document.addEventListener('click',(e)=>{//위치꺼내고 
+    const x=  e.clientX;
+    const y = e.clientY;
+    const item= makeStar(x, y);//위치넣어서 만들기
+    body.appendChild(item);
+    console.log('클릭됨');
+});
+
+//별만들기
+function makeStar(x, y){
+    const star = document.createElement('img');
+    star.setAttribute('class', 'star');
+    star.setAttribute('src','img/fire.png');
+    star.style.left =x+"px";
+    star.style.top = y+"px";
+    console.log('위치넣어짐');
+    return star;
 }
-
-startBtn.addEventListener('click',(event)=>{
-    displayBug();
-    console.log('벌레생성');
-})
-
-

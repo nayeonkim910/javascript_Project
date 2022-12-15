@@ -1,60 +1,34 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
-}    
-body{ 
-    
-    background: url('img/background.png') ;
+body{
+    height: 100vh;
+    background: url(img/BG.png) no-repeat center;
     background-size: cover;
-}
-.container{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-.startBtn{
-    background-color: coral;
-    border: none;
-    color: black;
-    width: 150px;
-    height: 90px;
-    font-weight: bold;
-    font-size: 50px;
-    border-radius: 10px;
-}
-.score{
-    font-style: italic;
-    width: 200px;
-    height: 60px;
-    font-weight: bold;
-    font-size: 35px;
-    border-radius: 20px;
-    margin-top: 15px;
-
-}
-.header{
-    margin-top: 30px;
-    /* background-color: blueviolet; */
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    padding: 5px;
-    border: 2px solid black;
-
-}
-.gameView{
-    /* background-color: aqua; */
-    border: 2px solid black;
-    width: 100%;
-    height: 55%;
-    position: relative;
-    margin-top: 180px;
-    overflow-y: hidden;
-}
+    margin: 0;
+}                           
 img{
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    position: relative;
-    }
+    width: 100px;
+    height: 90px;
+   
+}
+.star{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    -webkit-animation: fadeout 1s; /* Safari and Chrome */
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeout {
+      from {
+          opacity: 1;
+      }
+      to {
+          opacity: 0;
+      }
+  }
+  @-webkit-keyframes fadeout { /* Safari and Chrome */
+      from {
+          opacity: 1;
+      }
+      to {
+          opacity: 0;
+      }
+  }
