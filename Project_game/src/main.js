@@ -1,14 +1,16 @@
 
 const body = document.querySelector('body');
 const gameView = document.querySelector('.gameView');
+const gameA = document.querySelector(".gameImgA");
+const gameB = document.querySelector(".gameImgB");
 const secondBG = document.querySelector('.secondBG');
 const thirdBG = document.querySelector('.thirdBG');
 const other = document.querySelector('.otherBtn')
-const BG = new Audio("../bg.mp3");
 const checkBox = document.querySelectorAll(".checkBox");
 
-
-
+const BG = new Audio("../sound/bg.mp3");
+const SoundWin = new Audio("../sound/game_win.mp3");
+const SoundCheck = new Audio("../sound/carrot_pull.mp3");
 // document.addEventListener('click',(e)=>{//위치꺼내고 
     //const x=  e.clientX;
     // const x=  e.pageX;
@@ -32,12 +34,12 @@ const checkBox = document.querySelectorAll(".checkBox");
 
 
 
-gameView.addEventListener('click',()=>{
+gameA.addEventListener('click',()=>{
     // BG.play();
     seamless.scrollIntoView(secondBG,{behavior: "smooth", block: "center"});
     //스크롤내려서 두번째 화면 보이게 만들기
 });
-other.addEventListener('click',()=>{
+gameB.addEventListener('click',()=>{
     seamless.scrollIntoView(thirdBG,{behavior: "smooth", block: "center"});
 })
 
@@ -49,10 +51,28 @@ other.addEventListener('click',()=>{
 
 // 게임시작하는 함수 만들기 gameStart();
 
-
-
+ 
+let ch=0;
     checkBox.forEach((item)=>{
-            item.addEventListener('click',()=>{
-                item.style.opacity=1;
-            });
-    });
+             
+             item.addEventListener('click',()=>{
+                     item.style.opacity=1;
+                     ch ++;
+                     SoundCheck.play();
+                     if(ch==8){
+                        SoundWin.play();
+                       
+                    }
+                 });
+           
+        });
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
