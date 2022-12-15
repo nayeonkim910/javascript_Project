@@ -1,6 +1,6 @@
 body{
     height: 100vh;
-    background: url(img/BG.png) no-repeat center;
+    background: url(img/purple.png) no-repeat center;
     background-size: cover;
     margin: 0;
 }                           
@@ -15,6 +15,9 @@ img{
     -webkit-animation: fadeout 1s; /* Safari and Chrome */
     animation-fill-mode: forwards;
   }
+
+
+
 
   @keyframes fadeout {
       from {
@@ -32,3 +35,30 @@ img{
           opacity: 0;
       }
   }
+.header{
+    background-color: rgba(247, 212, 212, 0.276);
+    height: 25%;
+}
+.gameView{
+    height: 50%;
+    width: 580px;
+    background-color: rgba(22, 226, 226, 0.249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;   
+    opacity: 0.5;
+}
+  .gameView>img{
+    width: 90%;
+    height: 90%;
+    min-width: 400px;
+    min-height: 400px;
+    position: relative;
+    border-radius: 10px;
+}
+.bottom{
+    background-color: rgba(247, 212, 212, 0.276);
+    height: 25%;
+
+}
