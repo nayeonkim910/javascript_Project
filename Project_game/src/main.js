@@ -7,8 +7,10 @@ const other = document.querySelector('.otherBtn')
 const BG = new Audio("../bg.mp3");
 
 document.addEventListener('click',(e)=>{//위치꺼내고 
-    const x=  e.clientX;
-    const y = e.clientY;
+    // const x=  e.clientX;
+    const x=  e.pageX;
+    const y = e.pageY;
+    // const y = e.clientY;
     const item= makeStar(x, y);//위치넣어서 만들기
     body.appendChild(item);
     console.log('클릭됨');
