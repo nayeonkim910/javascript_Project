@@ -161,33 +161,35 @@ function showPoint(){
 }
 //네번째 페이지 Click 이벤트 위임하기 
 fourthBG.addEventListener('click',(event)=>{
+    const life = document.querySelectorAll(".lifeSet");
+    console.log(life);
     let second=10;
     let item = event.target;
     let className =event.target.className; 
     //item고르면 삭제하고 
-     if(item.nodeName=='IMG'){
-
-            if(className==='carrot'){
-                SoundCheck.play();
-                 showPoint();
-                 event.target.remove();               
-            }
-
-             else if(className=='bug'){
-                 SoundAlert.play();
-             }
+    
+    if(item.nodeName=='IMG'){
+                      if(className==='carrot'){
+                          SoundCheck.play();
+                           showPoint();
+                           event.target.remove();               
+                      }
+                  
+                       else if(className=='bug'){
+                           SoundAlert.play();
+                           }
+                       }
          //시작버튼 누르면 시작표시 사라지고, 게임 시작
-     }
-     if(className=='f_BtnStart'){
-        showPoint();
-        MakeItems();
-        f_BtnStart.style.display='none';
-        showTimer(second);//=> MakeIntervalItems(second)
-        StartCountdown(second);
-    }
-    if(className=='BtnStopBG'){
-        homeBG.pause();
-    }
+         if(className=='f_BtnStart'){
+            showPoint();
+            MakeItems();
+            f_BtnStart.style.display='none';
+            showTimer(second);//=> MakeIntervalItems(second)
+            StartCountdown(second);
+        }
+        if(className=='BtnStopBG'){
+            homeBG.pause();
+        }
 });                        
     
 //--------------------------------------
