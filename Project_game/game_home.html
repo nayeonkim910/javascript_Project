@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script defer src='src/main.js'></script>
-    <title>Make_starFadeOut</title>
+    <title>Make_GameAPP</title>
 </head>
 <body>
     <div class="firstBG">
         <div class="header">
-            <button class="otherBtn">other game</button>
+            <div class="BtnHomeBG">PLAY BGM</div>
         </div>
         <!-- <div class="startAlert">Click ME</div> -->
         <div class='home gameView'>    
             <img src="img/hp2.png" class='gameImg gameImgA'>
-            <img src="img/background.png" class='gameImg gameImgB'>
+            <img src="img/pcBG.png" class='gameImg gameImgB'> 
+            <img src="img/background.png" class='gameImg gameImgC'>
+            <!-- <img src="img/BG.png" class='gameImg gameImgB'> -->
          </div>
         <div class="bottom"></div>
     </div>
@@ -41,7 +43,26 @@
 <div class="thirdBG">
     <div class="header"></div>
  </div>
- 
+ <div class="fourthBG">
+    <div class="header">
+        <!-- 타이머는 헤더에 표시되도록 -->
+            <div class="timer"></div>
+    </div>
+    <div class="f_gameView">
+        <!-- 캐릭터등장 -->
+        <!-- <img src="img/coin.png" class="bug" style='top: 0px; left:0px;'> -->
+        <!-- <div class="PointAlert">ss</div> -->
+        <div class="f_gameView_Start">
+            <div class="f_BtnStart">Start</div>
+
+            <!-- 시작버튼은 여기에 -->
+        </div>
+    </div>
+
+    
+    
+
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script>
 </body>
