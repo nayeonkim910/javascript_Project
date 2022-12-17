@@ -36,25 +36,25 @@ const SoundWin = new Audio("../sound/game_win.mp3");
 const SoundCheck = new Audio("../sound/carrot_pull.mp3");
 const SoundAlert = new Audio("../sound/alert.wav");
 const homeBG = new Audio("../sound/theduel.mp3");
-const BtnHomeBG = document.querySelector(".BtnHomeBG");
+const BtnStopBG = document.querySelector(".BtnStopBG");
    
 
  
 
-BtnHomeBG.addEventListener('click',()=>{
-    homeBG.play();
+BtnStopBG.addEventListener('click',()=>{
+    BG.pause();
 });
 
 gameA.addEventListener('click',()=>{
     BG.play();
-    homeBG.pause();
     seamless.scrollIntoView(secondBG,{behavior: "smooth", block: "center"});
     //스크롤내려서 두번째 화면 보이게 만들기
 });
-gameB.addEventListener('click',()=>{
-    seamless.scrollIntoView(thirdBG,{behavior: "smooth", block: "center"});
-});
+
+
+
 gameC.addEventListener('click',()=>{
+    homeBG.play();
     seamless.scrollIntoView(fourthBG,{behavior: "smooth", block: "center"});
 });
 
@@ -145,7 +145,7 @@ function MakeIntervalItems(sec){
         console.log(sec);
         let MakeItemsId;
         MakeItemsId=setInterval(MakeItems,1000); //point 생성중
-        setTimeout(()=>{clearInterval(MakeItemsId); getAllImgRemove();timerDone();},sec*1000);
+        setTimeout(()=>{clearInterval(MakeItemsId); getAllImgRemove();  },sec*1000);
         
 } 
 
@@ -155,8 +155,9 @@ function timerDone(){
 
 let point=0;
 function showPoint(){
+    score.style.display = 'inline'
+    score.innerHTML = `Your Score: ${point}`;
     point++;
-    score.innerHTML = `score: ${point}`;
 }
 //네번째 페이지 Click 이벤트 위임하기 
 fourthBG.addEventListener('click',(event)=>{
@@ -165,22 +166,27 @@ fourthBG.addEventListener('click',(event)=>{
     let className =event.target.className; 
     //item고르면 삭제하고 
      if(item.nodeName=='IMG'){
-         if(className=='carrot'){
-             SoundCheck.play();
-             showPoint();
-             event.target.remove();               
-         }
-         else if(className=='bug'){
-             SoundAlert.play();
-         }
+
+            if(className==='carrot'){
+                SoundCheck.play();
+                 showPoint();
+                 event.target.remove();               
+            }
+
+             else if(className=='bug'){
+                 SoundAlert.play();
+             }
          //시작버튼 누르면 시작표시 사라지고, 게임 시작
      }
      if(className=='f_BtnStart'){
+        showPoint();
         MakeItems();
         f_BtnStart.style.display='none';
         showTimer(second);//=> MakeIntervalItems(second)
         StartCountdown(second);
-        
+    }
+    if(className=='BtnStopBG'){
+        homeBG.pause();
     }
 });                        
     

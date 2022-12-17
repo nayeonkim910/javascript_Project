@@ -18,17 +18,19 @@
     align-items: center;
 }
 
-.BtnHomeBG{
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 27px;
-    background-color: rgba(254, 217, 217, 0.128);
-    border-radius: 20px;
-    width: 200px;
-    text-align: center;
-    color: rgb(142, 142, 164);
-    position: relative;
-    transition: all 300ms ease;
+.BtnStopBG{
+font-weight: bold;
+cursor: pointer;
+font-size: 27px;
+background-color: rgb(137, 5, 5);
+border-radius: 20px;
+width: 180px;
+text-align: center;
+color: rgb(238, 238, 238);
+position: absolute;
+margin-top: 4px;
+padding: 5px;
+transition: all 300ms ease;           
 }
     .BtnHomeBG:hover{
         transform: scale(1.2);
@@ -46,8 +48,9 @@
     transition: all 400ms ease-in;
     z-index: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-around; */
     min-width: 700px;
     /* flex-wrap: wrap; */
 }
@@ -61,8 +64,8 @@
  .gameImg{
     border-radius: 40px;
     z-index:2;
-    width :35%;
-    height:55%;
+    width :40%;
+    height:65%;
     opacity: 0.5;  
     min-width: 200px;
     min-height: 200px;
@@ -153,31 +156,24 @@
             top: 45%;
             left: 63%;
         }
-        .thirdBG{
-             height: 100vh;
-             background: url(img/pcBG.png) no-repeat center;
-             background-size: cover;
-             margin: 0;
-            }
-
+            
         .fourthBG{
             height: 100vh;
             background: url(img/background.png) no-repeat center;
             background-size: cover;
             margin: 0;
         }
-
-
-
         .fourthBG .header{
             height: 45%;
             /* background-color: rgba(0, 255, 255, 0.523); */
             flex-direction: column;
         }
+            
             .score{
                 font-size: 60px;
                 font-weight: bold;
                 font-style: italic;
+                display: none;
             }
         .f_gameView{
             /* background-color: rgba(7, 177, 215, 0.734); */
@@ -196,6 +192,9 @@
             /* justify-content: space-between; */
             min-width: 700px;
         }
+            /* 리플레이 버튼 만들기 */
+              /* 사용자 name받아와서 서버 기록 */
+             /* 사용자 점수받아와서 날짜와 점수 기록하기 */
         .f_gameView>img{
             position: absolute;
             cursor: pointer;
@@ -230,6 +229,7 @@
                 position: relative;
                 transition: all 200ms ease-in-out;
                 font-style: italic;
+                
                 
             }
 
