@@ -159,16 +159,25 @@ function showPoint(){
     score.innerHTML = `Your Score: ${point}`;
     point++;
 }
+
+let userLife = 3;
+
+function lifeDone(){
+    userLife--; //2,1,0
+    const lifeImg = document.querySelectorAll(".lifeSet__item");
+    lifeImg[userLife].style.display='none';
+    
+    
+}
 //네번째 페이지 Click 이벤트 위임하기 
 fourthBG.addEventListener('click',(event)=>{
-    const life = document.querySelectorAll(".lifeSet");
-    console.log(life);
     let second=10;
     let item = event.target;
     let className =event.target.className; 
     //item고르면 삭제하고 
     
     if(item.nodeName=='IMG'){
+
                       if(className==='carrot'){
                           SoundCheck.play();
                            showPoint();
@@ -177,6 +186,8 @@ fourthBG.addEventListener('click',(event)=>{
                   
                        else if(className=='bug'){
                            SoundAlert.play();
+                           lifeDone();
+                           console.log(userLife);
                            }
                        }
          //시작버튼 누르면 시작표시 사라지고, 게임 시작
@@ -191,7 +202,6 @@ fourthBG.addEventListener('click',(event)=>{
             homeBG.pause();
         }
 });                        
-    
 //--------------------------------------
 
 
