@@ -23,11 +23,12 @@ const fourthBG = document.querySelector(".fourthBG");
 // const fourthRect = fourthBG.getBoundingClientRect();
 
 const f_BtnStart = document.querySelector(".f_BtnStart");
+    const score = document.querySelector(".score");
     const timer= document.querySelector(".timer");
 
     const f_gameView = document.querySelector(".f_gameView");    
     const viewRect = f_gameView.getBoundingClientRect();
-
+    
 
 //---------------sound
 const BG = new Audio("../sound/bg.mp3");
@@ -43,7 +44,6 @@ const BtnHomeBG = document.querySelector(".BtnHomeBG");
 BtnHomeBG.addEventListener('click',()=>{
     homeBG.play();
 });
-
 
 gameA.addEventListener('click',()=>{
     BG.play();
@@ -144,20 +144,30 @@ function MakeItems(){
 function MakeIntervalItems(sec){
         console.log(sec);
         let MakeItemsId;
-        MakeItemsId=setInterval(MakeItems,1000);
-        setTimeout(()=>{clearInterval(MakeItemsId); getAllImgRemove();},sec*1000);
+        MakeItemsId=setInterval(MakeItems,1000); //point 생성중
+        setTimeout(()=>{clearInterval(MakeItemsId); getAllImgRemove();timerDone();},sec*1000);
+        
 } 
 
+function timerDone(){
+    timer.style.display ='none';
+}
 
-
+let point=0;
+function showPoint(){
+    point++;
+    score.innerHTML = `score: ${point}`;
+}
 //네번째 페이지 Click 이벤트 위임하기 
 fourthBG.addEventListener('click',(event)=>{
+    let second=10;
     let item = event.target;
     let className =event.target.className; 
     //item고르면 삭제하고 
      if(item.nodeName=='IMG'){
          if(className=='carrot'){
              SoundCheck.play();
+             showPoint();
              event.target.remove();               
          }
          else if(className=='bug'){
@@ -165,7 +175,6 @@ fourthBG.addEventListener('click',(event)=>{
          }
          //시작버튼 누르면 시작표시 사라지고, 게임 시작
      }
-    let second=10;
      if(className=='f_BtnStart'){
         MakeItems();
         f_BtnStart.style.display='none';

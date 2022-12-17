@@ -171,7 +171,14 @@
 
         .fourthBG .header{
             height: 45%;
+            /* background-color: rgba(0, 255, 255, 0.523); */
+            flex-direction: column;
         }
+            .score{
+                font-size: 60px;
+                font-weight: bold;
+                font-style: italic;
+            }
         .f_gameView{
             /* background-color: rgba(7, 177, 215, 0.734); */
             height: 55%;
@@ -223,7 +230,6 @@
                 position: relative;
                 transition: all 200ms ease-in-out;
                 font-style: italic;
-                /* display: none; */
                 
             }
 
