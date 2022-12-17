@@ -1,6 +1,9 @@
 *{
     margin: 0; 
     padding: 0;
+    cursor: url(img/pen.png) 40 40, pointer;
+
+   
 }
 
 
@@ -19,7 +22,7 @@
 
 .BtnStopBG{
 font-weight: bold;
-cursor: pointer;
+/* cursor: pointer; */
 font-size: 27px;
 background-color: rgb(137, 5, 5);
 border-radius: 20px;
@@ -165,6 +168,9 @@ transition: all 300ms ease;
             background-size: cover;
             margin: 0;
         }
+
+         
+        
         .fourthBG .header{
             height: 35%;
             /* background-color: rgba(0, 255, 255, 0.523); */
@@ -177,6 +183,7 @@ transition: all 300ms ease;
             }
             .banSet__item,
             .lifeSet__item{
+                color: brown;
                 width: 50px;
                 height: 50px;
                 margin: 10px;
@@ -192,9 +199,9 @@ transition: all 300ms ease;
                 font-weight: bold;
                 font-style: italic;
                 display: none;
+                color:   darkblue;
             }
         .f_gameView{
-            /* background-color: rgba(7, 177, 215, 0.734); */
             height: 55%;
             width: 100%;
             margin: auto; 
@@ -205,17 +212,44 @@ transition: all 300ms ease;
             transition: all 400ms ease-in;
             z-index: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             /* justify-content: space-between; */
             min-width: 700px;
         }
+            .f_gameView__done{
+                background-color: rgba(255, 255, 255, 0.717);
+                border-radius: 40px;
+                width: 60%;
+                position: absolute;
+                height: 40%;
+                font-size: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                display: none;
+                z-index: 100;
+            }
+            .f_gameView__done__text{
+                font-weight: bold;
+            }
+            .f_gameView__replay{
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                width: 90px;
+                background-color: transparent;
+                border: none;
+                /* cursor: pointer; */
+            }
             /* 리플레이 버튼 만들기 */
               /* 사용자 name받아와서 서버 기록 */
              /* 사용자 점수받아와서 날짜와 점수 기록하기 */
         .f_gameView>img{
             position: absolute;
-            cursor: pointer;
+            /* cursor: pointer; */
             width: 80px;
             height:90px;
         }
@@ -230,7 +264,7 @@ transition: all 300ms ease;
                 font-weight: bold;
                 width: 30%;
                 font-size: 90px;
-                cursor: pointer;
+                /* cursor: pointer; */
                 margin: auto;
                 transition: all 300ms ease-in-out;
                 font-style: italic;
