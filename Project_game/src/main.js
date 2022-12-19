@@ -27,15 +27,13 @@ const f_BtnStart = document.querySelector(".f_BtnStart");
 
 //---------------sound-author: Bensound------------------------------
 //---------------sound-author: freesoundeffects------------------------------
-const BG = new Audio("../sound/bg.mp3");
-const SoundWin = new Audio("../sound/game_win.mp3");
-const trashSound = new Audio("../sound/trashSound.mp3");
-const SoundAlert = new Audio("../sound/alert.wav");
-const homeBG = new Audio("../sound/creativeminds.mp3");
+const BG = new Audio("sound/bg.mp3");
+const SoundWin = new Audio("sound/game_win.mp3");
+const trashSound = new Audio("sound/trashSound.mp3");
+const SoundAlert = new Audio("sound/alert.wav");
+const homeBG = new Audio("sound/creativeminds.mp3");
 const BtnStopBG = document.querySelector(".BtnStopBG");    
-const checkSound = new Audio("../sound/ok_pull.mp3");
-
-
+const checkSound = new Audio("sound/ok_pull.mp3");
 
 gameA.addEventListener('click',()=>{
     BG.play();
@@ -101,7 +99,6 @@ function StartCountdown(second){
 }
 function makeItem(className,count,ImgSrc){
        for(i=0; i<count; i++){
-    console.log(ISStarted);
             const MIN_X=0;
             const MAX_X=viewRect.width-70;
             const MIN_Y=0;
