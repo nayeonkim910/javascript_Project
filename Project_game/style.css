@@ -2,9 +2,7 @@
     margin: 0; 
     padding: 0;
     font-family: 'Noto Sans KR', sans-serif;
-
 }
-
 .firstBG{
     cursor: url(img/pen.png) 0 80 , pointer;
     height:100vh; 
@@ -12,7 +10,6 @@
     background-size: cover; 
 }
 .header{
-    /* background-color: rgba(241, 14, 14, 0.686); */
     height: 25%;
     display: flex;
     justify-content: center;
@@ -21,7 +18,6 @@
 
 .BtnStopBG{
 font-weight: bold;
-/* cursor: pointer; */
 font-size: 27px;
 background-color: rgb(137, 5, 5);
 border-radius: 20px;
@@ -38,7 +34,6 @@ transition: all 300ms ease;
     }
 
 .gameView{
-    /* background-color: rgba(249, 227, 227, 0.297); */
     height: 50%;
     width: 58%;
     margin: auto; 
@@ -51,20 +46,13 @@ transition: all 300ms ease;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* justify-content: space-around; */
     min-width: 700px;
-    /* flex-wrap: wrap; */
 }
 
 .gameImg:hover{
     height: 80%;
-    /* transform: scale(1.1); */
     opacity:1;
 }
-
-
-
-
 .gameImg{
     border-radius: 40px;
     z-index:2;
@@ -74,7 +62,6 @@ transition: all 300ms ease;
     min-width: 200px;
     min-height: 200px;
     padding: 20px;
-    /* margin-top: 25px; */
     position: relative;
     transition: all 500ms ease-in-out;
 }
@@ -107,7 +94,6 @@ transition: all 300ms ease;
     .secondBG>.realGameView{
          width: 60%;
          height: 60%;
-         /* background-color: aqua;   */
          text-align: center;
         display: flex;
         margin: auto;
@@ -171,15 +157,12 @@ transition: all 300ms ease;
             margin: 0;
              cursor: url(img/men.png) 0 0 , pointer;
         }
-
         .fourthBG .header{
             width: 50%;
             margin: auto;
             height: 50%;
-            background-color: rgba(252, 246, 244, 0.565);
             flex-direction: column;
             border-radius: 30px;
-            /* margin-top: 5px; */
         }
             .lifeSet{
                 height: 10%;
@@ -198,9 +181,8 @@ transition: all 300ms ease;
                 text-align: center;
             }
 
-
             .alertImg{
-                border-radius: 10px;
+                border-radius: 20px;
                 height: 60%;
                 width: 80%;
                 padding-top: 10px;
@@ -208,7 +190,7 @@ transition: all 300ms ease;
 
             }
             .alertText{
-                border-radius: 30px;
+                border-radius: 20px;
                 color:rgb(247, 247, 236);
                 margin: 10px;
                 width: 80%;
@@ -219,32 +201,21 @@ transition: all 300ms ease;
                 height: 40%;
                 padding-top: 20px;
                 background-color: rgba(8, 8, 54, 0.561);
-
             }
-
-            .banSet__item,
+          
             .lifeSet__item{
                 color: brown;
                 width: 50px;
                 height: 50px;
                 margin: 10px;
             }
-            /* .banSet{ */
-                /* height: 10%; */
-                /* display: flex; */
-                /* flex-direction: row-reverse; */
-/*              */
-            /* } */
             .score{
                 font-size: 60px;
                 font-weight: bold;
                 font-style: italic;
-                /* display: none; */
                 color:   darkblue;
-                /* background-color: brown; */
             }
         .f_gameView{
-            /* background-color: aqua; */
             height: 40%;
             width: 100%;
             margin: auto; 
@@ -259,48 +230,48 @@ transition: all 300ms ease;
             justify-content: center;
             min-width: 700px;
         }
+            .fish:hover,
+            .trash:hover{
+                transform: scale(1.2);
+            }
             .f_gameView__done{
-                background-color: rgba(255, 255, 255, 0.717);
+                background-color: rgba(210, 225, 234, 0.717);
                 border-radius: 30px;
-                width: 60%;
+                width: 95%;
                 position: absolute;
-                height: 45%;
+                height: 90%;
                 font-size: 60px;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
-                display: none;
                 z-index: 100;
                 text-align: center;
-
+                display: none;
             }
-            .f_gameView__done__text{
-                font-weight: bold;
-            }
-            .f_gameView__replay{
-                text-align: center;
+                     .f_gameView__done__text{
+                         /* background-color: aqua; */
+                         font-weight: bold;
+                         margin-top: 90px;
+                     }
+            .f_gameView__replay{                
                 position: relative;
-                display: inline-block;
+                display: inline;
                 width: 80px;
-                background-color: transparent;
-                border: none;
+                text-align: center;
                 transition: all 200ms ease-in;
 
             }
-            .f_gameView__replay:hover{
+            .f_gameView__replay img:hover{
                 transform: scale(1.2);
             }
 
-            /* 리플레이 버튼 만들기 */
-              /* 사용자 name받아와서 서버 기록 */
-             /* 사용자 점수받아와서 날짜와 점수 기록하기 */
         .f_gameView img{
             position: absolute;
-            /* cursor: pointer; */
             width: 100px;
             height:100px;
             display: inline;
+            transition: all 200ms ease-in-out;
         }
         .f_gameView_Start{
             height: 20%;
@@ -330,22 +301,18 @@ transition: all 300ms ease;
                 position: relative;
                 transition: all 200ms ease-in-out;
                 font-style: italic;
-                /* background-color: chartreuse; */
-
-                
-                
             }
 
-            .bug{
+            .fish{
                 transition: all 200ms ease-in;
                 
             }
 
-            .PointAlert{
-                background-color: aqua;
-                width: 100%;
-                margin: auto;
-            }
+            
+            
+            
+            
+            
             
             
             

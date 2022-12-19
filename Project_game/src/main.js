@@ -4,7 +4,7 @@ const body = document.querySelector('body');
     const gameA = document.querySelector(".gameImgA");
     const gameB = document.querySelector(".gameImgB");
     const gameC = document.querySelector(".gameImgC");
-    
+
 
 //-----------------second-----------------
 const secondBG = document.querySelector('.secondBG');
@@ -25,10 +25,11 @@ const f_BtnStart = document.querySelector(".f_BtnStart");
     const doneView = document.querySelector(".f_gameView__done");
     const alertView =document.querySelector(".alertBeforeStart");
 
-//---------------sound-----------------
+//---------------sound-author: Bensound------------------------------
+//---------------sound-author: freesoundeffects------------------------------
 const BG = new Audio("../sound/bg.mp3");
 const SoundWin = new Audio("../sound/game_win.mp3");
-const SoundCheck = new Audio("../sound/carrot_pull.mp3");
+const trashSound = new Audio("../sound/trashSound.mp3");
 const SoundAlert = new Audio("../sound/alert.wav");
 const homeBG = new Audio("../sound/creativeminds.mp3");
 const BtnStopBG = document.querySelector(".BtnStopBG");    
@@ -73,18 +74,10 @@ checkBox.forEach((item,index)=>{
 
 
 
-
-
+        //---------------------------------------------4----------
 function randomNum(min, max){
     return Math.random()*(max-min) +min;
 }
-
-
-
-
-
-
-//---------------------------------------------당근찾기  화면 ----------
 let userLife = 3;
 
 function showTimer(second){
@@ -130,13 +123,15 @@ function makeItem(className,count,ImgSrc){
 
 
 function MakeItems(){
-    makeItem('carrot',3,'img/trash.png');
-    makeItem('bug',2,'img/fish2.png');  //fish잡으면 안됨 
+    makeItem('trash',3,'img/trash.png');
+    makeItem('fish',2,'img/fish2.png');  //fish잡으면 안됨 
 }
 function lifeDone(){
     userLife--; //2,1,0
     lifeImg[userLife].style.display='none';
 }
+
+
 function MakeIntervalItems(sec){
     let MakeItemsId;
         MakeItemsId=setInterval(MakeItems,2000); //point 생성중
@@ -146,40 +141,40 @@ function timerDone(){
     timer.style.display ='none';
 }
 let point=0;
+
 function showPoint(){
     score.style.display = 'inline'
     score.innerHTML = `Your Score: ${point}`;
     point++;
 }
 function getAllImgRemove(){
-    const arrC = document.querySelectorAll(".carrot");
-    const arrB = document.querySelectorAll(".bug");
-    arrC.forEach(carrot=>carrot.style.display='none');
-    arrB.forEach(bug=>bug.style.display='none');
+    const arrT = document.querySelectorAll(".trash");
+    const arrF = document.querySelectorAll(".fish");
+    arrT.forEach(trash=>trash.style.display='none');
+    arrF.forEach(fish=>fish.style.display='none');
 }
 //네번째 페이지 Click 이벤트 위임하기 
 let second=10;
 let ISStarted =false;
 
 fourthBG.addEventListener('click',(event)=>{
-    
     let item = event.target;
     let className =event.target.className; 
     if(item.nodeName=='IMG'){
-                      if(className==='carrot'){
-                          SoundCheck.play();
+                      if(className==='trash'){
+                          trashSound.play();
                            showPoint();
                            event.target.remove();
                       }
-                       else if(className=='bug'){
+                       else if(className=='fish'){
                            SoundAlert.play();
                            lifeDone();
-                           console.log('유저라잎',userLife);
                            event.target.remove();
                            }
         }
 
          if(className=='f_BtnStart'){
+            homeBG.play();
             alertView.style.display='none';
             ISStarted=true;
             showPoint();
@@ -191,22 +186,22 @@ fourthBG.addEventListener('click',(event)=>{
          if(className=='BtnStopBG'){
              homeBG.pause();
          }
-});       
+    });       
 
 replayBtn.addEventListener('click',()=>{
-    ISStarted=false;
-    getAllImgRemove();
-    point =0;
-    score.innerHTML = `Your Score: ${point}`;
-    userLife =3;
-    for(i=0; i<userLife; i++){
-        lifeImg[i].style.display='inline';
-    }
-    second=10;
-    showTimer(second);
-    doneView.style.display='none';    //done없애고
-    f_BtnStart.style.display='inline';  //setart보여주고
-})
+        ISStarted=false;
+        getAllImgRemove();
+        point =0;
+        score.innerHTML = `Your Score: ${point}`;
+        userLife =3;
+        for(i=0; i<userLife; i++){
+            lifeImg[i].style.display='inline';
+        }
+        second=10;
+        showTimer(second);
+        doneView.style.display='none';    
+        f_BtnStart.style.display='inline';  
+    });
 
 
 
