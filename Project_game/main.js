@@ -42,8 +42,10 @@ homeBG.src ="sound/creativeminds.mp3";
 const checkSound = new Audio();
 checkSound.src = "sound/ok_pull.mp3";
 
+secondBG.addEventListener('click',(event)=>{
+    event.target.className=='BtnStopBG'&&BG.pause();
+});
 
-const BtnStopBG = document.querySelector(".BtnStopBG");    
 gameA.addEventListener('click',()=>{
     BG.play();
     seamless.scrollIntoView(secondBG,{behavior: "smooth", block: "center"});
