@@ -33,10 +33,9 @@ const trashSound = new Audio("../sound/trashSound.mp3");
 const SoundAlert = new Audio("../sound/alert.wav");
 const homeBG = new Audio("../sound/creativeminds.mp3");
 const BtnStopBG = document.querySelector(".BtnStopBG");    
+const checkSound = new Audio("../sound/ok_pull.mp3");
 
-BtnStopBG.addEventListener('click',()=>{
-    BG.pause();
-});
+
 
 gameA.addEventListener('click',()=>{
     BG.play();
@@ -57,15 +56,15 @@ gameC.addEventListener('click',()=>{
 // let ch=0;
 let checkedBox = new Object();
 
-
 checkBox.forEach((item,index)=>{
              item.addEventListener('click',()=>{
                  item.style.opacity=1;
                     checkedBox[index]= 'ok';
-                    console.log(checkedBox);
-                     SoundCheck.play();
+                    checkSound.play();
                     if(Object.keys(checkedBox).length==8){
                         SoundWin.play();
+                        BG.pause();
+                        seamless.scrollIntoView(fourthBG,{behavior: "smooth", block: "center"});
                     }
                  });
         });
