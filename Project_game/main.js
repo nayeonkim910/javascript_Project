@@ -42,11 +42,10 @@ homeBG.src ="sound/creativeminds.mp3";
 const checkSound = new Audio();
 checkSound.src = "sound/ok_pull.mp3";
 
-secondBG.addEventListener('click',(event)=>{
-    if(event.target.className=='BtnStopBG'){
-        BG.pause();
-    }
-});
+
+
+
+
 
 gameA.addEventListener('click',()=>{
     BG.play();
@@ -80,7 +79,12 @@ checkBox.forEach((item,index)=>{
                  });
         });
 
-
+        secondBG.addEventListener('click',(event)=>{
+            if(event.target.className=='BtnStopBG'){
+                BG.pause();
+            }
+        });
+        
 
 
 
