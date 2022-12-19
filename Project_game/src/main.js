@@ -23,14 +23,14 @@ const f_BtnStart = document.querySelector(".f_BtnStart");
     const lifeImg = document.querySelectorAll(".lifeSet__item");
     const replayBtn =document.querySelector(".f_gameView__replay");
     const doneView = document.querySelector(".f_gameView__done");
-
+    const alertView =document.querySelector(".alertBeforeStart");
 
 //---------------sound-----------------
 const BG = new Audio("../sound/bg.mp3");
 const SoundWin = new Audio("../sound/game_win.mp3");
 const SoundCheck = new Audio("../sound/carrot_pull.mp3");
 const SoundAlert = new Audio("../sound/alert.wav");
-const homeBG = new Audio("../sound/theduel.mp3");
+const homeBG = new Audio("../sound/creativeminds.mp3");
 const BtnStopBG = document.querySelector(".BtnStopBG");    
 
 BtnStopBG.addEventListener('click',()=>{
@@ -51,7 +51,7 @@ gameC.addEventListener('click',()=>{
 
 
 
-//---------------------------------------------당근찾기  화면 ----------
+//---------------------------------------------4 ----------
 // 게임시작하는 함수 만들기 gameStart();
 // let ch=0;
 let checkedBox = new Object();
@@ -110,7 +110,6 @@ function StartCountdown(second){
 function makeItem(className,count,ImgSrc){
        for(i=0; i<count; i++){
     console.log(ISStarted);
-
             const MIN_X=0;
             const MAX_X=viewRect.width-70;
             const MIN_Y=0;
@@ -128,9 +127,11 @@ function makeItem(className,count,ImgSrc){
             
     }
 };
+
+
 function MakeItems(){
-    makeItem('carrot',1,'img/carrot.png');
-    makeItem('bug',1,'img/bug.png'); 
+    makeItem('carrot',3,'img/trash.png');
+    makeItem('bug',2,'img/fish2.png');  //fish잡으면 안됨 
 }
 function lifeDone(){
     userLife--; //2,1,0
@@ -138,7 +139,7 @@ function lifeDone(){
 }
 function MakeIntervalItems(sec){
     let MakeItemsId;
-        MakeItemsId=setInterval(MakeItems,1000); //point 생성중
+        MakeItemsId=setInterval(MakeItems,2000); //point 생성중
         setTimeout(()=>{clearInterval(MakeItemsId); },sec*1000);
     } 
 function timerDone(){
@@ -179,7 +180,7 @@ fourthBG.addEventListener('click',(event)=>{
         }
 
          if(className=='f_BtnStart'){
-           console.log(ISStarted);
+            alertView.style.display='none';
             ISStarted=true;
             showPoint();
             MakeItems();
@@ -193,7 +194,6 @@ fourthBG.addEventListener('click',(event)=>{
 });       
 
 replayBtn.addEventListener('click',()=>{
-    console.log(ISStarted);
     ISStarted=false;
     getAllImgRemove();
     point =0;
