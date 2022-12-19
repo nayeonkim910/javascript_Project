@@ -27,13 +27,13 @@ const f_BtnStart = document.querySelector(".f_BtnStart");
 
 //---------------sound-author: Bensound------------------------------
 //---------------sound-author: freesoundeffects------------------------------
-const BG = new Audio("Project_game/sound/bg.mp3");
-const SoundWin = new Audio("Project_game/sound/game_win.mp3");
-const trashSound = new Audio("Project_game/sound/trashSound.mp3");
-const SoundAlert = new Audio("Project_game/sound/alert.wav");
-const homeBG = new Audio("Project_game/sound/creativeminds.mp3");
+const BG = new Audio("sound/bg.mp3");
+const SoundWin = new Audio("sound/game_win.mp3");
+const trashSound = new Audio("sound/trashSound.mp3");
+const SoundAlert = new Audio("sound/alert.wav");
+const homeBG = new Audio("sound/creativeminds.mp3");
 const BtnStopBG = document.querySelector(".BtnStopBG");    
-const checkSound = new Audio("Project_game/sound/ok_pull.mp3");
+const checkSound = new Audio("sound/ok_pull.mp3");
 
 gameA.addEventListener('click',()=>{
     BG.play();
