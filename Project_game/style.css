@@ -1,11 +1,10 @@
 *{
     margin: 0; 
     padding: 0;
-    cursor: url(img/pen.png) 40 40, pointer;
+    cursor: url(img/pen.png) 0 80 , pointer;
 
    
 }
-
 
 .firstBG{
     height:100vh; 
@@ -242,8 +241,12 @@ transition: all 300ms ease;
                 width: 90px;
                 background-color: transparent;
                 border: none;
-                /* cursor: pointer; */
+                transition: all 200ms ease-in;
             }
+            .f_gameView__replay:hover{
+                transform: scale(1.2);
+            }
+
             /* 리플레이 버튼 만들기 */
               /* 사용자 name받아와서 서버 기록 */
              /* 사용자 점수받아와서 날짜와 점수 기록하기 */

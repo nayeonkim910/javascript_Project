@@ -21,6 +21,9 @@ const f_BtnStart = document.querySelector(".f_BtnStart");
     const f_gameView = document.querySelector(".f_gameView");    
     const viewRect = f_gameView.getBoundingClientRect();
     const lifeImg = document.querySelectorAll(".lifeSet__item");
+    const replayBtn =document.querySelector(".f_gameView__replay");
+    const doneView = document.querySelector(".f_gameView__done");
+
 
 //---------------sound-----------------
 const BG = new Audio("../sound/bg.mp3");
@@ -37,7 +40,7 @@ BtnStopBG.addEventListener('click',()=>{
 gameA.addEventListener('click',()=>{
     BG.play();
     seamless.scrollIntoView(secondBG,{behavior: "smooth", block: "center"});
-    //스크롤내려서 두번째 화면 보이게 만들기
+     
 });
 
 gameC.addEventListener('click',()=>{
@@ -45,25 +48,45 @@ gameC.addEventListener('click',()=>{
     seamless.scrollIntoView(fourthBG,{behavior: "smooth", block: "center"});
 });
 
-//게임화면 나오기
+
+
+
+//---------------------------------------------당근찾기  화면 ----------
 // 게임시작하는 함수 만들기 gameStart();
-let ch=0;
-    checkBox.forEach((item)=>{
+// let ch=0;
+let checkedBox = new Object();
+
+
+checkBox.forEach((item,index)=>{
              item.addEventListener('click',()=>{
-                     item.style.opacity=1;
-                     ch ++;
+                 item.style.opacity=1;
+                    checkedBox[index]= 'ok';
+                    console.log(checkedBox);
                      SoundCheck.play();
-                     if(ch==8){
+                    if(Object.keys(checkedBox).length==8){
                         SoundWin.play();
                     }
                  });
         });
 
+
+
+
+
+
+
 function randomNum(min, max){
     return Math.random()*(max-min) +min;
 }
-//----------------------------------------------4번 화면 당근찾기 ----------
+
+
+
+
+
+
+//---------------------------------------------당근찾기  화면 ----------
 let userLife = 3;
+
 function showTimer(second){
     let min =Math.floor(second/60);
     timer.innerHTML=`${min<10?0:''}${min}:${second<10?0:''}${second}`;
@@ -86,6 +109,8 @@ function StartCountdown(second){
 }
 function makeItem(className,count,ImgSrc){
        for(i=0; i<count; i++){
+    console.log(ISStarted);
+
             const MIN_X=0;
             const MAX_X=viewRect.width-70;
             const MIN_Y=0;
@@ -97,7 +122,10 @@ function makeItem(className,count,ImgSrc){
             item.setAttribute('class',className);
             item.style.right= x+"px";
             item.style.bottom= y+"px";
-            f_gameView.appendChild(item);
+            if(second>0&&userLife>0&&ISStarted){
+                f_gameView.appendChild(item);
+            }
+            
     }
 };
 function MakeItems(){
@@ -111,7 +139,7 @@ function lifeDone(){
 function MakeIntervalItems(sec){
     let MakeItemsId;
         MakeItemsId=setInterval(MakeItems,1000); //point 생성중
-    setTimeout(()=>{clearInterval(MakeItemsId); getAllImgRemove(); },sec*1000);
+        setTimeout(()=>{clearInterval(MakeItemsId); },sec*1000);
     } 
 function timerDone(){
     timer.style.display ='none';
@@ -129,15 +157,18 @@ function getAllImgRemove(){
     arrB.forEach(bug=>bug.style.display='none');
 }
 //네번째 페이지 Click 이벤트 위임하기 
+let second=10;
+let ISStarted =false;
+
 fourthBG.addEventListener('click',(event)=>{
-    let second=10;
+    
     let item = event.target;
     let className =event.target.className; 
     if(item.nodeName=='IMG'){
                       if(className==='carrot'){
                           SoundCheck.play();
                            showPoint();
-                           event.target.remove();               
+                           event.target.remove();
                       }
                        else if(className=='bug'){
                            SoundAlert.play();
@@ -146,7 +177,10 @@ fourthBG.addEventListener('click',(event)=>{
                            event.target.remove();
                            }
         }
+
          if(className=='f_BtnStart'){
+           console.log(ISStarted);
+            ISStarted=true;
             showPoint();
             MakeItems();
             f_BtnStart.style.display='none';
@@ -156,9 +190,23 @@ fourthBG.addEventListener('click',(event)=>{
          if(className=='BtnStopBG'){
              homeBG.pause();
          }
-});                        
-//--------------------------------------
+});       
 
+replayBtn.addEventListener('click',()=>{
+    console.log(ISStarted);
+    ISStarted=false;
+    getAllImgRemove();
+    point =0;
+    score.innerHTML = `Your Score: ${point}`;
+    userLife =3;
+    for(i=0; i<userLife; i++){
+        lifeImg[i].style.display='inline';
+    }
+    second=10;
+    showTimer(second);
+    doneView.style.display='none';    //done없애고
+    f_BtnStart.style.display='inline';  //setart보여주고
+})
 
 
 
