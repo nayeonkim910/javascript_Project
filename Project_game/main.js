@@ -43,7 +43,9 @@ const checkSound = new Audio();
 checkSound.src = "sound/ok_pull.mp3";
 
 secondBG.addEventListener('click',(event)=>{
-    event.target.className=='BtnStopBG'&&BG.pause();
+    if(event.target.className=='BtnStopBG'){
+        BG.pause();
+    }
 });
 
 gameA.addEventListener('click',()=>{
