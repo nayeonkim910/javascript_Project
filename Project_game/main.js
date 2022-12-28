@@ -1,18 +1,6 @@
 
 const body = document.querySelector('body');
-    const gameView = document.querySelector('.gameView');
-    const gameA = document.querySelector(".gameImgA");
-    const gameB = document.querySelector(".gameImgB");
-    const gameC = document.querySelector(".gameImgC");
-
-
-//-----------------second-----------------
-const secondBG = document.querySelector('.secondBG');
-    const checkBox = document.querySelectorAll(".checkBox");
-
-//----------------fourthd-------------------
 const fourthBG = document.querySelector(".fourthBG");
-// const fourthRect = fourthBG.getBoundingClientRect();
 
 const f_BtnStart = document.querySelector(".f_BtnStart");
     const score = document.querySelector(".score");
@@ -25,12 +13,6 @@ const f_BtnStart = document.querySelector(".f_BtnStart");
     const doneView = document.querySelector(".f_gameView__done");
     const alertView =document.querySelector(".alertBeforeStart");
 
-//---------------sound-author: Bensound------------------------------
-//---------------sound-author: freesoundeffects------------------------------
-const BG = new Audio();
-BG.src = "sound/bg.mp3";
-const SoundWin = new Audio();
-SoundWin.src="sound/game_win.mp3";
 
 const trashSound = new Audio();
 trashSound.src ="sound/trashSound.mp3";
@@ -39,56 +21,9 @@ SoundAlert.src ="sound/alert.wav";
 
 const homeBG = new Audio();
 homeBG.src ="sound/creativeminds.mp3";
-const checkSound = new Audio();
-checkSound.src = "sound/ok_pull.mp3";
 
 
 
-
-
-
-gameA.addEventListener('click',()=>{
-    BG.play();
-    seamless.scrollIntoView(secondBG,{behavior: "smooth", block: "center"});
-     
-});
-
-gameC.addEventListener('click',()=>{
-    homeBG.play();
-    seamless.scrollIntoView(fourthBG,{behavior: "smooth", block: "center"});
-});
-
-
-
-
-//---------------------------------------------4 ----------
-// 게임시작하는 함수 만들기 gameStart();
-// let ch=0;
-let checkedBox = new Object();
-
-checkBox.forEach((item,index)=>{
-             item.addEventListener('click',()=>{
-                 item.style.opacity=1;
-                    checkedBox[index]= 'ok';
-                    checkSound.play();
-                    if(Object.keys(checkedBox).length==8){
-                        SoundWin.play();
-                        BG.pause();
-                        seamless.scrollIntoView(fourthBG,{behavior: "smooth", block: "center"});
-                    }
-                 });
-        });
-
-        secondBG.addEventListener('click',(event)=>{
-            if(event.target.className=='BtnStopBG'){
-                BG.pause();
-            }
-        });
-        
-
-
-
-        //---------------------------------------------4----------
 function randomNum(min, max){
     return Math.random()*(max-min) +min;
 }
@@ -134,7 +69,6 @@ function makeItem(className,count,ImgSrc){
     }
 };
 
-
 function MakeItems(){
     makeItem('trash',3,'img/trash.png');
     makeItem('fish',2,'img/fish2.png');  //fish잡으면 안됨 
@@ -166,10 +100,10 @@ function getAllImgRemove(){
     arrT.forEach(trash=>trash.style.display='none');
     arrF.forEach(fish=>fish.style.display='none');
 }
-//네번째 페이지 Click 이벤트 위임하기 
 let second=10;
 let ISStarted =false;
 
+//네번째 페이지 Click 이벤트 위임하기 
 fourthBG.addEventListener('click',(event)=>{
     let item = event.target;
     let className =event.target.className; 
