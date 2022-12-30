@@ -7,49 +7,51 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" 
     rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a6c050465.js" 
+    crossorigin="anonymous"></script>
     <link rel="icon" href="img/earth.png">
-    <script defer src='main.js'></script>
+    <script defer src='src/main.js'></script>
     <title>GameAPP</title>
 </head>
 <body>
 
  
- <div class="fourthBG" id='grabGame'>
-     <div class="BtnStopBG">STOP BGM</div>
-     <div class="lifeSet">
-        <img src="img/life.png" class="lifeSet__item">
-        <img src="img/life.png" class="lifeSet__item">
-        <img src="img/life.png" class="lifeSet__item">
-     </div>
+     <div class="gameContainer" >
+            <!-- BGM -->
+         <div class="BtnStopBG">STOP BGM</div>
 
-     <div class="header">
-        <!-- 타이머는 헤더에 표시되도록 -->
-            <div class="alertBeforeStart">
-                    <img src="img/alertView.png" class='alertImg'>
-                    <div class="alertText">
-                        <i>Marine debris</i><br>
-                        What We Can Do About Marine Debris Is Cleaning up marine.<br>
-                        Everyone can help reduce the problem.<br>
-                        해양쓰레기 문제를 해결하기 위해 바다를 청소해요!<br>
-                        무엇보다 중요한 것은 '쓰레기를 버리지 않는 것' 입니다.
-                    </div>
-            </div>
-            <div class="timer"></div>
-            <div class="score"></div>
-    </div>
+            <!-- lifeSet -->
+         <div class="lifeSet">
+            <img src="img/life.png" class="lifeSet__item">
+            <img src="img/life.png" class="lifeSet__item">
+            <img src="img/life.png" class="lifeSet__item">
+         </div>
 
-    <div class="f_gameView">
-            <div class="f_gameView__done">
-                <div class='f_gameView__done__text'>you wanna replay?</div>
-               <div class='f_gameView__replay'><img  src="img/fish2.png" class=''></div> 
-            </div>
-        <!-- 캐릭터등장 -->
-        <div class="f_gameView_Start">
-            <div class="f_BtnStart">GO</div>
+                <!-- header -->
+         <div class="header">
+                <div class="alertView">
+                        <img src="img/alertView.png" class='alertView__img'>
+                        <div class="alertView__text">
+                            <!-- <i>Marine debris</i><br> -->
+                            What We Can Do About Marine Debris Is Cleaning up marine.<br>
+                            Everyone can help reduce the problem.<br>
+                            해양쓰레기 문제를 해결하기 위해 바다를 청소해요!<br>
+                            무엇보다 중요한 것은 '쓰레기를 버리지 않는 것' 입니다.
+                        </div>
+                </div>
+                <div class="timer"></div>
+                <div class="score"></div>
         </div>
-    </div>
+                <!-- gameView -->
+        <div class="gameView">
+                  <div class="gameView__replay">
+                      <div class='gameView__replay__text'>you wanna Replay?</div>
+                      <div class='gameView__replay__btn'><i class="fa-solid fa-reply"></i></div>
+                  </div>
+                  <div class="BtnStart">GO</div>
+        </div>
 
-</div>
+    </div>
 
 </body>
 </html>
