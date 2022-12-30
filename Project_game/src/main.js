@@ -1,6 +1,4 @@
 'use strict';
-//🔥✨🔥✨🔥✨🔥✨🔥✨🔥✨🔥✨🔥✨🔥✨🔥✨
-//use strict꼭 써야함.
 
 const body = document.querySelector('body');
     const gameContainer = document.querySelector(".gameContainer");
@@ -11,30 +9,29 @@ const body = document.querySelector('body');
 
         const gameView = document.querySelector(".gameView");    
         const viewRect = gameView.getBoundingClientRect();
-        const BtnStart = document.querySelector(".BtnStart");
+            const alertView =document.querySelector(".alertView");
+            const BtnStart = document.querySelector(".BtnStart");
     
-        const BtnReplay =document.querySelector(".gameView__replay__img");
-        const replayView = document.querySelector(".gameView__replay");
-        const alertView =document.querySelector(".alertView");
+            const replayView = document.querySelector(".gameView__replay");
+                const BtnReplay =document.querySelector(".gameView__replay__btn");
 
     // SoundSet //가져오기 
     const soundTrash = new Audio();
     soundTrash.src ="sound/trashSound.mp3";
-    const soundAlert = new Audio();
-    soundAlert.src ="sound/alert.wav";
+    const soundFish = new Audio();
+    soundFish.src ="sound/alert.wav";
     const gameBG = new Audio();
     gameBG.src ="sound/creativeminds.mp3";
 
-//--------------------------------------------
 // 전역변수 설정
 let point=0;
 let second=10;
 let userLife = 3;
 let ISStarted =false;
-const IMG_SIZE =70;
+const IMG_SIZE =90;
 const TRASH_COUNT = 6;
 const FISH_COUNT = 4;
-// 인터벌 clear할때 쓰려고 전역에 설정해두기 
+ 
 let makeItemsId = undefined;
 let countDownId = undefined;
 
@@ -42,28 +39,31 @@ let countDownId = undefined;
 
 function startGame(){
     ISStarted=true;
-    BtnStart.style.visivility='hidden'; //startBtn보이지 않게 하기 
-    //gameBG.play(); //BGM 플레이하기 
-    startTimer(); //timer시작
-    startMakingCharacters(); //캐릭터 생성
-    showPoint(); //점수보여주기
+    timer.style.display='inline'; 
+    score.style.display='inline'; 
+    showRemainingTime(second);
+    startTimer(); 
+    showPoint();  
+    
+      startMakingCharacters();  
 }
 
 function finishGame(){
     ISStarted=false;
-    displayReplayView();
-    stopTimer();
     stopMakingCharacters();
-    //더이상 화면 클릭 안되도록 만들기 ISStarted=false니까.
+    stopTimer();
+    gameBG.pause();
+    getAllImgRemove();
+    showReplayBox();
+    
 }
 
 function startTimer(){
     countDownId= setInterval(()=>{
-        second--;  //1초씩 줄게하기. 인터벌 써서. 
-        showRemainingTime(second); //남은시간보여주기 
+        second--;  
+        showRemainingTime(second);  
         if(second==0){
-            finishGame();   ////게임중단 🤢
-            //메서드 안에서 어차피 stopTimer()됨.
+            finishGame();
         }
     },1000);
 }
@@ -80,16 +80,23 @@ function stopTimer(){
 function startMakingCharacters(){
     makeItemsId = setInterval(()=>{
         makeCharacters();
+        if(userLife==0|| second==0){
+            stopMakingCharacters();
+        }
     },1000);
 }
 
-function makeCharacters(){ //trash,fish 둘다 만들어줌 
+function stopMakingCharacters(){
+    clearInterval(makeItemsId);
+}
+
+function makeCharacters(){  
     makeItem('trash',TRASH_COUNT,'img/trash.png');
     makeItem('fish',FISH_COUNT,'img/fish2.png');
 }
 
 function makeItem(className, count, imgSrc){
-    for(i=0; i<count;i++){
+    for(let i=0; i<count; i++){
     const MIN_X =0;
     const MAX_X =viewRect.width-IMG_SIZE;
     const MIN_Y =0;
@@ -105,26 +112,20 @@ function makeItem(className, count, imgSrc){
     }
 }
 
-function stopMakingCharacters(){
-    clearInterval(makeItemsId);
-}
 function randomNum(min, max){
     return Math.random()*(max-min) +min;
 }
 function lifeDone(){
     userLife--; //2,1,0
-    lifeImg[userLife].style.visivility='hidden';
+    lifeImg[userLife].style.display='none';
     if(userLife==0){
-        finishGame();  //게임중단 🤢
+        finishGame(); 
     }
 }
 function showPoint(){
-    score.style.visivility = 'visible';
-    score.innerHTML = `Your Score: ${point}`;
-    point++;
+    score.innerHTML = `Score: ${point}`;
 }
 
-// 🔥🔥🔥🔥🔥🔥🔥🔥🔥이 메서드 쓸지 말지 고민 //
 function getAllImgRemove(){
     const arrT = document.querySelectorAll(".trash");
     const arrF = document.querySelectorAll(".fish");
@@ -132,25 +133,29 @@ function getAllImgRemove(){
     arrF.forEach(fish=>fish.style.display='none');
 }
 
-
+function showReplayBox(){
+    replayView.style.display='flex';
+}
 function pointUp(){
-    score++;
+    point++;
+    showPoint(point);
+}
+function playSound(soundName){
+    soundName=='trash'&&soundTrash.play();
+    soundName=='fish'&&soundFish.play();
+
 }
 
 // Click 이벤트 위임하기 
 gameContainer.addEventListener('click',(event)=>{
-         if(ISStarted==false){
-             return;
-         }
-         if(className=='BtnStopBG'){
-            gameBG.pause();
-         }
-         let target  = event.target;
-         let className = target.className; 
+    let target  = event.target;
+    let className = target.className; 
+    
          if(className=='BtnStart'){
-             startGame();
              gameBG.play();
+             startGame();  
              alertView.style.display='none';
+             BtnStart.style.display='none';
             }
         if(className=='trash'){
               playSound('trash');
@@ -158,23 +163,20 @@ gameContainer.addEventListener('click',(event)=>{
               target.remove();
           }
            else if(className=='fish'){
-               soundAlert.play();
+               playSound('fish');
                lifeDone();
                target.remove();
                }
-   
     });       
-
+    
     BtnReplay.addEventListener('click',()=>{
-        //reset시키기 
-        ISStarted=false;
         point =0;
         score.innerHTML = `Your Score: ${point}`;
         userLife =3;
         for(let i=0; i<userLife; i++){
-            lifeImg[i].style.visibility='visible';
+            lifeImg[i].style.display='inline';
         }
-        second=15;
+        second=10;
         showRemainingTime(second);
         replayView.style.display='none';    
         BtnStart.style.display='inline';  
